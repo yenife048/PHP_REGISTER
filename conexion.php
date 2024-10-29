@@ -1,19 +1,35 @@
 <?php
 
-$servername = "localhost";
-$database = "register_people";
-$username = "root";
-$password = "Nu2tria";
+// Definir clase
+class DB_CONNECT
+{
+    // datos y propiedades de conexión
+    private $servername = "localhost";
+    private $username = "root";
+    private $password = "Nu2tria";
+    private $database = "register_people";
 
-//Crear conexion
+    // Propiedad publica en donde se almacenara la conexión:
+    public $conn;
 
-$conn = mysqli_connect($servername, $username, $password, $database);
+    //Metodo __constructor para establecer la conexión automaticamente
+    public function __construct()
+    {
+        $this->conn = new mysqli(
+            $this->servername,
+            $this->username,
+            $this->password,
+            $this->database
+        );
 
-if (!$conn){
-    die ("No se realizo la conexion a la base de datos ". mysqli_connect_error());
+        if ($this->conn->connect_error) {
+            die("No se realizo la conexión " . $this->conn->connect_error);
+        }
+    }
+
+    // Metodo para cerrar conexión
+    public function close()
+    {
+        $this->conn->close();
+    }
 }
-echo "Conexion exitosa";
-mysqli_close($conn );
-
-
-?>
