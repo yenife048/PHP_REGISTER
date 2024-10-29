@@ -11,21 +11,21 @@
     <hr>
 
     <div class="contenedor_form">
-        <form class="formulario" action="">
+        <form class="formulario" action="" method="post">
             <h2 class="subtitulo">Datos Persona</h2>
 
             <div class="campos">
                 <div class="campos_div">
-                    <label class="label" for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" required>
+                    <label class="label" for="nombres">Nombres</label>
+                    <input type="text" id="nombres" name="nombres" required>
                 </div>
                 <div class="campos_div">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" name="apellido" required>
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos" required>
                 </div>
                 <div class="campos_div">
                     <label for="edad">Edad</label>
-                    <input type="number" id="edad" name="edad" min="0" required>
+                    <input type="number" id="edad" name="edad" min="0" max="90" required>
                 </div>
             </div>
 
@@ -55,7 +55,9 @@
 
             <div class="form_buttons">
                 <button>Reset</button>
-                <button>Enviar</button>
+                <button name="accion" value="enviar" type="submit">
+                    Enviar
+                </button>
             </div>
         </form>
     </div>
