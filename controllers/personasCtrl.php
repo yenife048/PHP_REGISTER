@@ -59,5 +59,25 @@ if ($accion != '') {
     }
 }
 
+//Mostrar datos en tabla
+
+// realizar la consulta
+$sql = 'SELECT * FROM personas';
+$resultado = $db->conn->query($sql);
+// $resultado = $conn->query($sql);
+
+// Inicializar el array para almacenar los registros
+$registros = [];
+
+if ($resultado->num_rows > 0) {
+    // Recorrer cada registro y almacenarlo en el array
+    while ($row = $resultado->fetch_assoc()) {
+        $registros[] = $row;
+    }
+} else {
+    echo "No se encontraron registros.";
+}
+
+
 // Cerrar conexión
 // $db->close();

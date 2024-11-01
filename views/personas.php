@@ -24,16 +24,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Activo</td>
-                <td>jhon deivid</td>
-                <td>guevara beltran</td>
-                <td>20</td>
-                <td>05-11-2024</td>
-                <td>Picaleña</td>
-                <td>Compras</td>
-            </tr>
+            <?php foreach ($registros as $persona) { ?>
+                <tr>
+                    <td><?php echo $persona['id_persona']; ?></td>
+                    <td><?php echo $persona['estado']; ?></td>
+                    <td><?php echo $persona['nombres']; ?></td>
+                    <td><?php echo $persona['apellidos']; ?></td>
+                    <td><?php echo $persona['edad'];?></td>
+                    <td><?php echo $persona['fecha_registro'];?></td>
+                    <td><?php echo $persona['sede_id'];?></td>
+                    <td><?php echo $persona['area_id'];?></td>
+                </tr>
+            <?php }; ?>
         </tbody>
     </table>
     </div>
